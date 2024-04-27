@@ -41,14 +41,20 @@
       .amount_border{
         display: inline-flex;
       }
+      .dropdown-menu {
+      display: none; /* Hide dropdown menu by default */
+    }
+    .dropdown-menu.show {
+      display: block; /* Show dropdown menu when 'show' class is added */
+    }
     </style>
   </head>
   <body>
     <div
       class="px-5 pt-5 pb-5"
       style="background-color: #df081a; max-height: 460px"
-    >s
-      <div class="container">
+    >
+      <div class="">
         <div
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-1"
         >
@@ -57,15 +63,25 @@
         </div>
 
         <div
-          class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3"
+          class="  pt-3 pb-2 mb-3"
         >
           <h4 class="text-white">Accounts</h4>
 
-          <span class="text-white">
-          <p class="mb-0">SSN:410926093</p>
-          <p class="mb-0">  Account number: 1248009321</p>
-         <p class="mb-0">   Routine number:041203942</p>
-          </span>
+          <div class="dropdown ">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" aria-haspopup="true" aria-expanded="false" onclick="toggleDropdown()">
+              &#8942; <!-- Three dot icon -->
+            </button>
+            <div class="dropdown-menu" id="dropdownContent" aria-labelledby="dropdownMenuButton">
+              <!-- Content inside the dropdown -->
+              <span class="text-white mr-">
+                <p class="mb-0 dropdown-item">SSN:  410926093</p>
+                <p class="mb-0 dropdown-item">  Account number: 1248009321</p>
+                <p class="mb-0 dropdown-item">   Routine number:041203942</p>
+          
+              </span>
+            </div>
+          </div>
+
         </div>
 
         <div class="row mb-3">
@@ -460,5 +476,17 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  function toggleDropdown() {
+    var dropdownContent = document.getElementById("dropdownContent");
+    dropdownContent.classList.toggle("show");
+  }
+</script>
+
   </body>
 </html>
+
